@@ -30,7 +30,7 @@ Central controller for all of the project. Holds API methods for all of the othe
 ##### API Calls:
   * FrontEnd
     * addNewDataToFront
-    * setUserInputData
+    * predictUserInputData
     * getPredictionData
   * RealTimeDataReceiver
     * addNewTrip
