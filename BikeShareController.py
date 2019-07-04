@@ -1,16 +1,18 @@
+import PredictionModel
+
 # From FrontEnd
 def predictUserInputData(data):
 	predictData(data)
 
 # From Prediction
 def getTrainingParameters():
-	#call training model to get parameters
-	#return parameters
+	# return TrainingModel.getParameters()
 	pass
 
 ### General Methods ###
 def predictData(data):
-	pass
+	return PredictionModel.predict(data)
 
 def trainData(data):
-	pass
+	# TrainingModel.train(data)
+	PredictionModel.setParameters(getTrainingParameters())
