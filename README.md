@@ -1,5 +1,5 @@
 # TorontoBikeShare
-Project using machine learning to predict amount of bikes left over at a each bike share station in Toronto.
+Project using machine learning to predict amount of bikes left over at each bike share station in Toronto.
 
 ## Data
 #### Target Data
