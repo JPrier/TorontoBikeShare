@@ -1,18 +1,22 @@
-import PredictionModel
+import Model
+import DataFormatter
 
-# From FrontEnd
-def predictUserInputData(data):
-	predictData(data)
+def BikeShareController():
+	def __init__():
+		self.model = Model()
+		self.dataFormatter = DataFormatter()
 
-# From Prediction
-def getTrainingParameters():
-	# return TrainingModel.getParameters()
-	pass
+	# From FrontEnd
+	def predictUserInputData(data):
+		predictData(data)
 
-### General Methods ###
-def predictData(data):
-	return PredictionModel.predict(data)
+	def getModelResults():
+		return null
 
-def trainData(data):
-	# TrainingModel.train(data)
-	PredictionModel.setParameters(getTrainingParameters())
+	### General Methods ###
+	def predictData(data):
+		data = self.dataFormatter.getFormattedData(data)
+		return self.model.predict(data)
+
+	def trainData(data):
+		self.model.train(data)
