@@ -11,7 +11,7 @@ def BikeShareController():
 		predictData(data)
 
 	def getModelResults():
-		return null
+		return None
 
 	### General Methods ###
 	def predictData(data):

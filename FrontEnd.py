@@ -2,11 +2,9 @@ import BikeShareController, io
 from flask import Flask, Response, render_template
 app = Flask(__name__)
 
-bikeShareController = null
-
 @app.route('/')
 def index():
-    if (bikeShareController == null):
+    if (bikeShareController is None):
         bikeShareController = BikeShareController()
     return render_template('index.html')
 
