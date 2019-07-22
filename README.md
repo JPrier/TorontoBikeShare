@@ -12,7 +12,7 @@ Model takes in a trip, current weather for the trip, and the bikes_left for each
 The model is an RNN with LTSM nodes, teacher forcing and the model loops on itself (the last node in the RNN outputs to the first node).
 The RNN's timestep outputs represent an hour of time throughout a day
 
-## Production Architecture
+## Production Architecture (out of date -- incorrect)
 #### FrontEnd
 Holds all code running front end realtime visualization and user inputs
 
