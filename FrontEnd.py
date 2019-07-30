@@ -2,6 +2,8 @@ import BikeShareController, io
 from flask import Flask, Response, render_template
 app = Flask(__name__)
 
+bikeShareController = None
+
 @app.route('/')
 def index():
     if (bikeShareController is None):
