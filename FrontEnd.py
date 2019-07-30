@@ -1,17 +1,20 @@
-import BikeShareController, io
-from flask import Flask, Response, render_template
-app = Flask(__name__)
-
-bikeShareController = None
+from BikeShareController import BikeShareController
+import io
+from flask import Flask, Response, render_template, request, url_for, redirect
+from matplotlib import Figure, FigureCanvas
+app = Flask(__name__, template_folder='.')
 
 @app.route('/')
 def index():
-    bikeShareController = BikeShareController()
-    return render_template('index.html')
+    return render_template('./index.html')
 
 @app.route('/plot.png')
 def plotPng():
-    data = bikeShareController.getModelResults()
+    bikeShareController = BikeShareController()
+    if bikeShareController != None:
+        data = bikeShareController.getModelResults()
+    else:
+        data = [1, 2, 3, 4]
     figure = createFigure(data)
     output = io.BytesIO()
     FigureCanvas(figure).print_png(output)
@@ -24,3 +27,9 @@ def createFigure(data):
     ys = [random.randint(1, 50) for x in xs]
     axis.plot(xs, ys)
     return figure
+
+@app.route('/bikeshare', methods=['GET', 'POST'])
+def redirectToBikeShare():
+    if request.method == 'POST':
+        return redirect(url_for('index'))
+    return render_template('bikeshare.html')
