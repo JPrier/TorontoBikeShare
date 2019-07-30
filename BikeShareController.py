@@ -2,7 +2,7 @@ import Model
 import DataFormatter
 
 def BikeShareController():
-	def __init__():
+	def __init__(self):
 		self.model = Model()
 		self.dataFormatter = DataFormatter()
 
