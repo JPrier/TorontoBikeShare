@@ -6,8 +6,7 @@ bikeShareController = None
 
 @app.route('/')
 def index():
-    if (bikeShareController is None):
-        bikeShareController = BikeShareController()
+    bikeShareController = BikeShareController()
     return render_template('index.html')
 
 @app.route('/plot.png')
