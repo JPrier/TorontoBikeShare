@@ -1,7 +1,6 @@
 from BikeShareController import BikeShareController
-import io
+import io, matplotlib.pyplot as plt
 from flask import Flask, Response, render_template, request, url_for, redirect
-from matplotlib import Figure, FigureCanvas
 app = Flask(__name__, template_folder='.')
 
 @app.route('/')
@@ -15,18 +14,12 @@ def plotPng():
         data = bikeShareController.getModelResults()
     else:
         data = [1, 2, 3, 4]
-    figure = createFigure(data)
+    plt.figure()
+    plt.plot(data)
+    plt.title("Bike Share Data")
     output = io.BytesIO()
-    FigureCanvas(figure).print_png(output)
+    plt.savefig(output, format='png')
     return Response(output.getvalue(), mimetype='image/png')
-
-def createFigure(data):
-    figure = Figure()
-    axis = figure.add_subplot(1,1,1)
-    xs = range(100)
-    ys = [random.randint(1, 50) for x in xs]
-    axis.plot(xs, ys)
-    return figure
 
 @app.route('/bikeshare', methods=['GET', 'POST'])
 def redirectToBikeShare():
