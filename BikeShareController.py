@@ -1,22 +1,17 @@
-import Model
-import DataFormatter
+import Model as model
+import DataFormatter as df
 
-def BikeShareController():
-	def __init__(self):
-		self.model = Model()
-		self.dataFormatter = DataFormatter()
+# From FrontEnd
+def predictUserInputData(data):
+	predictData(data)
 
-	# From FrontEnd
-	def predictUserInputData(data):
-		predictData(data)
+def getModelResults():
+	return [5, 4, 3, 2, 1]
 
-	def getModelResults():
-		return None
+### General Methods ###
+def predictData(data):
+	data = df.getFormattedData(data)
+	return model.predict(data)
 
-	### General Methods ###
-	def predictData(data):
-		data = self.dataFormatter.getFormattedData(data)
-		return self.model.predict(data)
-
-	def trainData(data):
-		self.model.train(data)
+def trainData(data):
+	model.train(data)
